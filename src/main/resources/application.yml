@@ -42,8 +42,10 @@ spring:
 
 jwt:
   key: ${JWT_SECRET_KEY}
-  access-token:
-    expire-length: ${JWT_ACCESS_EXPIRE:3600000}
-  refresh-token:
-    expire-length: ${JWT_REFRESH_EXPIRE:86400000}
+  access:
+    expiration: ${JWT_ACCESS_EXPIRE:3600000}
+    header: Authorization
+  refresh:
+    expiration: ${JWT_REFRESH_EXPIRE:86400000}
+    header: Authorization-refresh
 

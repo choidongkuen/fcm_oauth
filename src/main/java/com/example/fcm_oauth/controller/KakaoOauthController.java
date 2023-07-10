@@ -1,7 +1,7 @@
 package com.example.fcm_oauth.controller;
 
 import com.example.fcm_oauth.dto.KakaoUserInfo;
-import com.example.fcm_oauth.service.KakaoOauthService;
+import com.example.fcm_oauth.service.KakaoOAuthService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class KakaoOauthController {
 
-    private final KakaoOauthService kakaoOauthService;
+    private final KakaoOAuthService kakaoOauthService;
 
 //    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
 //    private String clientId;

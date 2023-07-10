@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import java.util.Collection;
 import java.util.Map;
 
-public class KakaoOAuth2User extends DefaultOAuth2User {
+public class KakaoOAuthUser extends DefaultOAuth2User {
     /**
      * Constructs a {@code DefaultOAuth2User} using the provided parameters.
      *
@@ -15,7 +15,7 @@ public class KakaoOAuth2User extends DefaultOAuth2User {
      * @param nameAttributeKey the key used to access the user's &quot;name&quot; from
      *                         {@link #getAttributes()}
      */
-    public KakaoOAuth2User(
+    public KakaoOAuthUser(
             Collection<? extends GrantedAuthority> authorities,
             Map<String, Object> attributes,
             String nameAttributeKey) {

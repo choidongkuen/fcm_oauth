@@ -18,10 +18,9 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class KakaoOauthService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class KakaoOAuthService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
 
     private final UserRepository userRepository;
-
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
