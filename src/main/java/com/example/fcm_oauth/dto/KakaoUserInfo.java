@@ -2,33 +2,49 @@ package com.example.fcm_oauth.dto;
 
 import java.util.Map;
 
-public class KakaoUserInfo implements OauthUserInfo {
-
-    private final Map<String, Object> attributes;
+public class KakaoUserInfo extends OAuthUserInfo {
 
     public KakaoUserInfo(Map<String, Object> attributes) {
-        this.attributes = attributes;
+        super(attributes);
+    }
+
+    private static Map<String, Object> getProfile(Map<String, Object> account, String profile) {
+        return (Map<String, Object>) account.get(profile);
     }
 
     @Override
-    public String getProviderId() {
+    public String getId() {
         return String.valueOf(attributes.get("id"));
     }
 
     @Override
-    public String getProvider() {
-        return "kakao";
-    }
-
     public String getNickName() {
-        return (String) getProfile().get("nickname");
+
+        Map<String, Object> account = getAccount();
+        Map<String, Object> profile = getProfile(account, "profile");
+
+        if (profile == null || account == null) {
+            return null;
+        }
+
+        return (String) profile.get("nickname");
     }
 
-    public Map<String, Object> getKakaoAccount() {
-        return (Map<String, Object>) attributes.get("kakao_account");
+    @Override
+    public String getImageUrl() {
+
+        Map<String, Object> account = getAccount();
+        Map<String, Object> profile = getProfile(account, "profile");
+
+        if (profile == null || account == null) {
+            return null;
+        }
+
+        return (String) profile.get("thumbnail_image_url");
     }
 
-    public Map<String, Object> getProfile() {
-        return (Map<String, Object>) getKakaoAccount().get("profile");
+    private Map<String, Object> getAccount() {
+        return getProfile(attributes, "kakao_account");
     }
 }
+

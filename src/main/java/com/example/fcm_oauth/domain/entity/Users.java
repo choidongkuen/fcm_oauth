@@ -1,5 +1,6 @@
 package com.example.fcm_oauth.domain.entity;
 
+import com.example.fcm_oauth.dto.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Members {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +34,7 @@ public class Members {
     @Column(name = "usr_profile")
     private String imageUrl;
 
-
+    @Enumerated(EnumType.STRING)
+    @Column(name = "usr_role")
+    private Role role;
 }
