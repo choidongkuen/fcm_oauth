@@ -1,4 +1,4 @@
-package com.example.fcm_oauth.entity;
+package com.example.fcm_oauth.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
