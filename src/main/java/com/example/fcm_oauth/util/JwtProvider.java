@@ -41,7 +41,7 @@ public class JwtProvider {
                 .collect(Collectors.joining(","));
     }
 
-    // Jwt 를 생성하는 메소드(Authentication)
+    // Jwt(TokenInfo) 를 생성하는 메소드(Authentication)
     // 을 받아 AccessToken + RefreshToken 을 가지는 TokenInfo 를 반환
     public TokenInfo generateToken(Authentication authentication) {
 
@@ -59,6 +59,7 @@ public class JwtProvider {
 
     }
 
+    // 엑세스 토큰 생성
     public String generateAccessToken(Authentication authentication) {
         String authorities = getAuthorities(authentication);
 
@@ -70,6 +71,7 @@ public class JwtProvider {
                 .compact();
     }
 
+    // 리프레시 토큰 생성
     public String generateRefreshToken(Authentication authentication) {
         String authorities = getAuthorities(authentication);
 
@@ -80,6 +82,7 @@ public class JwtProvider {
 
     }
 
+    // jwt 유효성 검증
     public Boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
@@ -91,6 +94,7 @@ public class JwtProvider {
         return null;
     }
 
+    // jwt 파싱
     public Claims paresClaims(String accessToken) {
         try {
             return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
