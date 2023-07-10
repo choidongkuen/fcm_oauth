@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 @Getter
@@ -16,19 +14,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Member {
+public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usr_id")
     private Long id;
 
-    @Column(name = "usr_name")
-    private String name;
+    @Column(name = "usr_oauth_id")
+    private String oauthId;
+
+    @Column(name = "usr_nickname")
+    private String nickName;
 
     @Column(name = "usr_age")
     private Integer age;
 
-    @OneToMany(mappedBy = "member")
-    private List<Orders> orders = new ArrayList<>();
+    @Column(name = "usr_profile")
+    private String imageUrl;
+
+
 }

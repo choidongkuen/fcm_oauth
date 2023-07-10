@@ -26,7 +26,7 @@ spring:
         registration:
           kakao:
             client-id: ${REST_API_KEY}
-            redirect-uri: ${REDIRECT_URI:http://localhost:3000/login/callback/kakao}
+            redirect-uri: ${REDIRECT_URI:http://localhost:8080/login/callback/kakao}
             authorization-grant-type: authorization_code
             client-authentication-method: POST
             client-name: kakao
@@ -41,8 +41,7 @@ spring:
             user-name-attribute: id
 
 jwt:
-  key:
-    VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+  key: ${JWT_SECRET_KEY}
   access-token:
     expire-length: ${JWT_ACCESS_EXPIRE:3600000} # 1??
   refresh-token:
