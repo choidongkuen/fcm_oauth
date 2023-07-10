@@ -13,7 +13,7 @@ public class KakaoUserInfo extends OAuthUserInfo {
     }
 
     @Override
-    public String getId() {
+    public String getOauthId() {
         return String.valueOf(attributes.get("id"));
     }
 

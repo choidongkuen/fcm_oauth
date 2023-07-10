@@ -10,7 +10,7 @@ public abstract class OAuthUserInfo {
         this.attributes = attributes;
     }
 
-    public abstract String getId();
+    public abstract String getOauthId();
 
     public abstract String getNickName();
 

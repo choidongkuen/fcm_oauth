@@ -26,7 +26,7 @@ public class KakaoOauthController {
             @RequestParam(value = "code") String code,
             HttpServletResponse httpServletResponse
     ) throws JsonProcessingException {
-        return this.kakaoOauthService.kakaoLogin(code, httpServletResponse);
+        return null;
     }
 }
 

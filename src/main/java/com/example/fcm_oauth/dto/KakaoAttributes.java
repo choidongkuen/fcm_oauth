@@ -24,7 +24,7 @@ public class KakaoAttributes {
     /*
          api 로 받아온 유저 정보인 attributes key nameAttributeKey 와 attributes 를 받아서 객체 생성
     */
-    private static KakaoAttributes of(String nameAttributeKey, Map<String, Object> attributes) {
+    public static KakaoAttributes of(String nameAttributeKey, Map<String, Object> attributes) {
         return KakaoAttributes.builder()
                 .nameAttributeKey(nameAttributeKey)
                 .oauthUserInfo(new KakaoUserInfo(attributes))
@@ -33,7 +33,7 @@ public class KakaoAttributes {
 
     public Users toEntity(OAuthUserInfo oauthUserInfo) {
         return Users.builder()
-                .oauthId(oauthUserInfo.getId())
+                .oauthId(oauthUserInfo.getOauthId())
                 .nickName(oauthUserInfo.getNickName())
                 .imageUrl(oauthUserInfo.getImageUrl())
                 .role(Role.USER)
